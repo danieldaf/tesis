@@ -1,0 +1,36 @@
+#chartsContainer {
+	background: transparent;
+	min-width: 550px;
+	max-width: 918px; /* (300+2+4)*3 */
+	margin: 0 auto 0 auto;
+	
+	text-align: left;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.info {
+	float: none;
+	width: calc(100% - 2ex);
+/* 	min-height: 100px; */
+	max-width: calc(914px - 2ex); /*918 totales - 4(borde+margen) - 10 (padding) */
+/* 	background: #DFDFFF; */
+	background: transparent;
+	border: 1px hidden #909090;
+	margin: 1px;	
+	padding: 0 1ex 0 1ex;
+/* 	border-radius: 5px; */
+}
+
+.chart {
+	float: left;
+	min-width: 300px;
+	min-height: 200px;
+	background: #FFFFDF;
+	border: 1px solid #C0C0C0;
+	margin: 2px;
+	text-align: center;
+	border-radius: 5px;
+	display: none;
+}

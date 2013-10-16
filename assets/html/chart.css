@@ -1,0 +1,19 @@
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #555555;
+	shape-rendering: crispEdges;
+}
+.axis text {
+	font-family: sans-serif;
+	font-style: normal;
+	font-size: x-small;
+}
+
+.fondo line {
+	fill: none;
+	stroke: #aaaaaa;
+	stroke-width: 1px;
+	stroke-dasharray: 1 2;
+	stroke-opacity: 1;
+}

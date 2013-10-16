@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_tabs"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+<!--     <LinearLayout -->
+<!--         android:id="@+id/viewProgress" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="match_parent" -->
+<!--         android:visibility="gone" > -->
+
+<!--         <TextView -->
+<!--             android:id="@+id/viewProgress" -->
+<!--             android:layout_width="match_parent" -->
+<!--             android:layout_height="match_parent" -->
+<!--             android:text="Lazo" -->
+<!--             android:visibility="gone"/> -->
+
+<!--     </LinearLayout> -->
+
+    <FrameLayout
+        android:id="@+id/listAlgoritmosFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true" >
+
+        <fragment
+            android:id="@+id/list_algoritmos_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="ar.edu.unicen.exa.intia.imgProc.mobile.view.fragments.ListAlgoritmos_" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/list_transformaciones_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true" >
+
+        <fragment
+            android:id="@+id/list_transformaciones_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="ar.edu.unicen.exa.intia.imgProc.mobile.view.fragments.ListTransformaciones_" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/list_source_imagenes_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true" >
+
+        <fragment
+            android:id="@+id/list_source_imagenes_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="ar.edu.unicen.exa.intia.imgProc.mobile.view.fragments.ListSourceImagenes_" />
+    </FrameLayout>
+
+</ViewFlipper>

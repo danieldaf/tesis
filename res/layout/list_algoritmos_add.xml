@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_detector" />
+    <Spinner
+        android:id="@+id/sub_list_detectores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/str_detector" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_extractor" />
+    <Spinner
+        android:id="@+id/sub_list_extractores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/str_extractor" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_matcher" />
+    <Spinner
+        android:id="@+id/sub_list_matchers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/str_matcher" />
+
+</LinearLayout>

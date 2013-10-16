@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/mnu_list_add_algorithm_item"
+        android:showAsAction="always"
+        android:visible="false"
+		android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/list_add_item" />
+
+    <item
+        android:id="@+id/mnu_list_add_transformation_item"
+        android:showAsAction="always"
+        android:visible="false"
+		android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/list_add_item" />
+
+    <item
+        android:id="@+id/mnu_list_add_image_item"
+        android:showAsAction="always"
+        android:visible="false"
+		android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/list_add_item" />
+    
+    <item
+        android:id="@+id/mnu_iniciar_prueba"
+        android:showAsAction="ifRoom"
+        android:visible="true"
+		android:icon="@android:drawable/ic_media_play"
+        android:title="@string/iniciar_prueba" />
+
+    <item
+        android:id="@+id/mnu_ver_ejecuciones"
+        android:showAsAction="ifRoom"
+        android:visible="false"
+		android:icon="@android:drawable/ic_media_next"
+        android:title="@string/ver_ejecuciones" />
+</menu>

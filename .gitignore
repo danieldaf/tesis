@@ -1,0 +1,7 @@
+bin
+target
+gen
+lint.xml
+proguard-project.txt
+.settings
+.svn

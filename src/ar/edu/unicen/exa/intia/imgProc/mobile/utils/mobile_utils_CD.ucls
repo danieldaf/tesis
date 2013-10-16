@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.utils.BitmapUtils" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/utils/BitmapUtils.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="133" y="15"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.utils.AlgTransformacionUtils" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/utils/AlgTransformacionUtils.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="391" y="8"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.utils.EjecucionUtils" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/utils/EjecucionUtils.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="672" y="-2"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.utils.DeviceInfoUtils" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/utils/DeviceInfoUtils.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="928" y="-8"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="false" protected="true" private="true" static="true"/>    
+    <operations public="true" package="false" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="false"/>
+</class-diagram>

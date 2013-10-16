@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.EjecutorDePruebas" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/EjecutorDePruebas.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="675" width="705" x="1147" y="-101"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.BenchResultsSqlite" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/BenchResultsSqlite.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="318" x="383" y="-101"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.SrvPruebaPerformanceBinder" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/SrvPruebaPerformanceBinder.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="366" x="741" y="-101"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="4" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.ISrvPruebaPerformanceBinder" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/ISrvPruebaPerformanceBinder.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="366" x="741" y="614"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="5" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.ConversorClasesAnalogas" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/ConversorClasesAnalogas.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="390" x="1892" y="-101"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="6">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="false" protected="true" private="true" static="true"/>    
+    <operations public="true" package="false" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="false"/>
+</class-diagram>

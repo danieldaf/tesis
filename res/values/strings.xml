@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Extractor Características</string>
+    <string name="app_name_pruebas">Lanzar Ejecución de Pruebas</string>
+    <string name="app_name_ejecuciones">Ejecuciones Realizadas</string>
+    <string name="app_name_estadisticas">Estadísticas</string> 
+    <string name="notification_iniciando_pruebas">Iniciando&#8230;</string>
+    
+    <string name="show_alg_combinaciones">Algorítmos</string>
+    <string name="show_alg_transformaciones">Transform.</string>
+    <string name="show_src_imagenes">Imágenes</string>
+    
+    <string name="list_remove_items_selected">Eliminar</string>
+    <string name="list_add_item">Agregar</string>
+    
+    <string name="str_list_view_empty_algoritmos">Sin algorítmos definidos</string>
+    <string name="str_list_view_empty_transformaciones">Sin transformaciones definidas</string>
+    <string name="str_list_view_empty_src_imagenes">Sin imágenes definidas</string>
+
+    <string name="str_add_algoritmo">Agregar Algoritmo</string>
+    <string name="str_detector">Detector</string>
+    <string name="str_extractor">Extractor</string>
+    <string name="str_matcher">Matcher</string>
+    
+    <string name="str_add_transformacion">Agregar Transformación</string>
+    <string name="str_transformacion">Transformación</string>
+    
+    <string name="iniciar_prueba">Ejecutar</string>
+    <string name="ver_ejecuciones">Ver Ejecuciones</string>
+    
+    <string name="str_btn_pausar_test">Pausar</string>
+    <string name="str_btn_reanudar_test">Reanudar</string>
+    <string name="str_btn_finalizar_test">Finalizar</string>
+    <string name="str_btn_cerrar_test">Cerrar</string>
+    
+    <string name="prueba_finalizada_satisfacgoriamente">Finalización satisfactoria!</string>
+    <string name="prueba_interrumpida">Ejecución Abortada</string>
+    
+    <string name="app_name_progreso">Progreso Evaluación</string>
+    <string name="str_infoprogreso">&lt;Info Progreso&gt;</string>
+    <string name="str_labelProgreso">0%</string>
+    
+    <string name="str_list_view_empty_ejecuciones">No se encontraron ejecuciones de pruebas realizadas</string>
+    <string name="show_estatistics">Mostrar Estadísticas</string>
+    <string name="launch_test_activity">Ejecutar Pruebas</string>
+    <string name="refresh_list_ejecuciones">Actualizar</string>
+    <string name="list_ejecuciones_refreshing">Ejecuciones actualizadas</string>
+    
+    <string name="estadistics_activity_launch_failed">No se pudo mostrar las estadistias seleccionadas.</string>
+    
+    <string name="chart_eficiencia_titulo">Eficiencia por Punto Característico</string>
+    <string name="chart_eficiencia_labelEjeX">Tiempo de ejecución en [ms]</string>
+    <string name="chart_eficiencia_unidadMetrica">[ms]</string>
+        
+    <string name="chart_eficiencia_leyenda_deteccion">Tiempo Detección</string>
+    <string name="chart_eficiencia_leyenda_extraccion">Tiempo Extracción</string>
+    <string name="chart_eficiencia_leyenda_matching">Tiempo Matching</string>
+    <string name="chart_eficiencia_leyenda_total">Tiempo Total</string>
+    
+    <string name="export_charts">Exportar Gráficos</string>
+    <string name="no_charts_to_export">Error al recuperar los gráficos para exportar</string>
+    <string name="no_sdcard">No se detecto la memoria realizar la exportación</string>
+
+</resources> 

@@ -1,0 +1,23 @@
+<html>
+  <head>
+  	<link rel="stylesheet" type="text/css" href="chart.css"></link>
+  </head>
+
+  <body>
+    <div id="chart1" ></div>
+    <div id="chart2" ></div>
+    <script type="text/javascript" src="d3.v3.min.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="svg-export.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="chartLine.js" ></script>
+    <script type="text/javascript" src="chartHBar.js" ></script>
+    <script type="text/javascript" src="prueba.js" ></script>
+    
+    <pre id="texto"></pre>
+    
+    <script type="text/javascript">
+    	var txt = backend.recuperarDatos();
+    	texto.textContent = txt;
+    </script>
+
+  </body>
+</html>

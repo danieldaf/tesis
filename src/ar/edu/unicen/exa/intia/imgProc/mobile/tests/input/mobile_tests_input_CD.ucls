@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.FeatureAlgorithm.Time" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/FeatureAlgorithm.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1602" y="468"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.CombinedTransform" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/CombinedTransform.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="450" x="293" y="-144"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.ImageTranslationTransformation" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/ImageTranslationTransformation.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="316" x="-8" y="746"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.ImageBrightnessTransform" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/ImageBrightnessTransform.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="480" y="898"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.MatImagen" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/MatImagen.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="218" x="1003" y="391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.ImageGaussianBlurTransform" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/ImageGaussianBlurTransform.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="733" y="885"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.CombinedTransform.Par" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/CombinedTransform.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="218" x="-8" y="391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.FileImageLoadIterator" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/FileImageLoadIterator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="259" x="1132" y="-144"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="9" language="java" 
+    name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.CombinedTransform.ParamCombinationType" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/CombinedTransform.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="218" x="250" y="391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <interface id="10" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.ImageLoadIterator" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/ImageLoadIterator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="218" x="1261" y="391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="11" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.ImageTransformation" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/ImageTransformation.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="455" x="508" y="391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.FeatureAlgorithm" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/FeatureAlgorithm.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="277" x="1460" y="-144"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.ImageRotationTransformation" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/ImageRotationTransformation.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1361" y="891"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.ImageScalingTransformation" 
+    project="ExtractorCaracteristicasPruebasPerformance" 
+    file="/ExtractorCaracteristicasPruebasPerformance/src/ar/edu/unicen/exa/intia/imgProc/mobile/tests/input/ImageScalingTransformation.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="272" x="864" y="746"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="true"/>      
+      <operations public="true" package="false" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="15">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <association id="16">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="17" name="m_first"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="19">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="20" name="imgPrev"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="22">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="23" name="m_second"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <nesting id="25">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </nesting>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <nesting id="27">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <nesting id="30">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <association id="31">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="32" name="m_params"/>      
+      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization id="34">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="35">    
+    <bendpoint x="1170" y="740"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="false" protected="true" private="true" static="true"/>    
+    <operations public="true" package="false" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="false"/>
+</class-diagram>

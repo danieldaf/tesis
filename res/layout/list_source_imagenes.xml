@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridView xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/lst_src_images"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:columnWidth="90dp"
+    android:numColumns="auto_fit"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
+    android:stretchMode="columnWidth"
+    android:gravity="center">
+
+<!--     <TextView -->
+<!--         android:id="@+id/list_view_empty_src_imagenes" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="fill_parent" -->
+<!--         android:layout_weight="1" -->
+<!--         style="@android:style/TextAppearance.Holo.Large" -->
+<!--         android:gravity="center_vertical|center_horizontal" -->
+<!--         android:scrollHorizontally="false" -->
+<!--         android:text="@string/str_list_view_empty_src_imagenes" /> -->
+
+</GridView>

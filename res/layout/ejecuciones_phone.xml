@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_ejecuciones"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/listEjecucionesFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true" >
+
+        <fragment
+            android:id="@+id/list_ejecuciones_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="ar.edu.unicen.exa.intia.imgProc.mobile.view.fragments.ListEjecuciones_" />
+    </FrameLayout>
+
+</LinearLayout>

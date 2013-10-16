@@ -1,0 +1,9 @@
+package ar.edu.unicen.exa.intia.imgProc.mobile.tests.exceptions;
+
+public enum ExecutionExceptionEnum {
+	EVALUACION_ACTUALMENTE_EN_EJECUCION,
+	EVALUACION_NO_INICIADA,
+	EVALUACION_ABORTADA,
+	ALGORITMO_EVALUACION_NO_MAPEADO,
+	ALGORITMO_TRANSFORMACION_NO_MAPEADO;
+}
