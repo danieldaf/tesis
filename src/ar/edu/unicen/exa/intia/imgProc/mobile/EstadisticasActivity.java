@@ -126,6 +126,7 @@ public class EstadisticasActivity extends Activity {
 	        return true;
 	    case R.id.mnu_export_charts:
 	    	exportCharts();
+	    	exportCVS();
 	    	return true;
 	    }
 	    return super.onOptionsItemSelected(item);
@@ -462,9 +463,78 @@ public class EstadisticasActivity extends Activity {
 				outSVG.close();
 			} catch (IOException e) {
 				e.printStackTrace();
+				Toast.makeText(this, "Error al exporar "+fileNameSVG+":"+e.getMessage(), Toast.LENGTH_LONG).show();
 			}
 		}
 		Toast.makeText(this, graficosAExportar.size()+" Gráficos exportados con exito en: "+pathEjecucion, Toast.LENGTH_LONG).show();
+	}
+	
+	private void exportCVS() {
+		String state = Environment.getExternalStorageState();
+		if (!Environment.MEDIA_MOUNTED.equals(state)) {
+			Toast.makeText(this, R.string.no_sdcard, Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
+		String csvResult = "";
+		
+		TransformacionChartData chartAct = null;
+		for (ChartData chart : listGraficos) {
+			if (chart instanceof TransformacionChartData) {
+				chartAct = (TransformacionChartData)chart;
+				List<String> stepsValidos = AlgTransformacionUtils.getTicksEjeX(chartAct.getAlgTransformacion());
+				
+				csvResult += "\n"+chartAct.getAlgTransformacion().getTipo().getNombre();
+				csvResult += "\nArgument";
+				for (String step : stepsValidos) {
+					csvResult += ","+step;
+				}
+				
+				Map<String, List<EstadisticaCoincidencias>> listaItemsByAlg = dao.obtenerPorcentajeDeMatchesCorrectos(chartAct.getAlgTransformacion());
+				for (String algoritmo : listaItemsByAlg.keySet()) {
+					List<EstadisticaCoincidencias> listaItems = listaItemsByAlg.get(algoritmo);
+					
+					csvResult += "\n"+algoritmo;
+					
+					for (int pos = 0, maxPos = listaItems.size(), maxPosVar = listaItems.size(), posStep = 0; pos<maxPos; pos++) {
+						EstadisticaCoincidencias item = listaItems.get(pos);
+						String stepAct = stepsValidos.get(posStep);
+						
+						while (maxPosVar < stepsValidos.size() && !stepAct.equals(item.getPasoTransformacion())) {
+							csvResult += ",0.0";
+							maxPosVar++;
+							posStep++;
+							stepAct = stepsValidos.get(posStep);
+						}
+						
+						csvResult += ","+Double.toString(item.getValor());
+					}
+									
+				}
+
+			}
+		}
+		
+		if (csvResult == null || csvResult.trim().isEmpty()) {
+			Toast.makeText(this, "No hay datos estadisticos para exportar a CSV.", Toast.LENGTH_LONG).show();
+			return;
+		}
+		
+		String filePath = pathEjecucion+File.separator+"eficiencia.csv";
+		try {
+			File foutCSV = new File(filePath);
+			if (!foutCSV.exists()) {
+				foutCSV.createNewFile();
+			}
+			FileOutputStream outCSV = new FileOutputStream(foutCSV);
+			outCSV.write(csvResult.getBytes("UTF-8"));
+			outCSV.close();
+
+			Toast.makeText(this, "Datos estadisticos exportados a CSV en el archivo: "+filePath, Toast.LENGTH_LONG).show();		
+		} catch (IOException e) {
+			e.printStackTrace();
+			Toast.makeText(this, "Error al exporar CSV:"+e.getMessage(), Toast.LENGTH_LONG).show();
+		}
 	}
 	
 }
