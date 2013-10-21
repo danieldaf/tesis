@@ -8,8 +8,7 @@ public class FrameMatchingStatistics {
 
     double argumentValue;
     /**
-     * Porcentaje calculado entre de los descriptores detectados entre las caracteristicas de la imagen original y las de la imagen
-     * transformada coincidentes; sobre la cantidad de puntos de interes detectados en la imagen.
+     * Porcentaje de coincidencias. Cantidad de Matching sobre cantidad de Puntos de interes (el minimo de las dos imagenes)
      */
     double percentOfMatches;
     /**
@@ -18,10 +17,14 @@ public class FrameMatchingStatistics {
     double ratioTestFalseLevel;
     /**
      * Distancia media (promedio) entre las características coincidentes
+     * Todas las carateristicas que hacen matching tiene una distancia entre si.
+     * Un valor de cero representa una coincidencia ideal.
+     * Este valor, es el promedio de las distancias de todas las caracteristicas coincidentes.
      */
     double meanDistance;
     /**
      * Desviación entre las características coincidentes
+     * Para mayor detalle ver la documentacion de meanDistance
      */
     double stdDevDistance;
     /**

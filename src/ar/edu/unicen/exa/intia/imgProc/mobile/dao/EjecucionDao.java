@@ -224,6 +224,7 @@ public class EjecucionDao {
 		return result;
 	}
 
+	//TODO: no usado en ninguna lado.... aun...
 	public List<EstadisticaEficiencia> obtenerPorcentajeEficienciaPorAlgoritmos(AlgTransformacion algTransformacion) {
 		List<EstadisticaEficiencia> result = null;
 		String sql = "";

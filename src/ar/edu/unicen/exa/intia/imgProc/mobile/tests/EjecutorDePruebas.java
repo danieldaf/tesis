@@ -48,9 +48,9 @@ import ar.edu.unicen.exa.intia.imgProc.mobile.tests.output.StatisticResults;
  * Lanzar a ejecutar y recuperar los resultados generados.
  * 
  * OBS: tambien podria ser 'parametrizado' por algun tipo de estrategia la forma de guardar los resultados.
- * Cada uno por separadao. Al igual que la recuperacion de las imagenes.
+ * Cada uno por separado. Al igual que la recuperacion de las imagenes.
  * Asi como las imagenes son recuperadas en forma trasparente asi sean de la galeria como de un recurso.
- * Las estadisticas e imagenes resultates podrian almacenarse de forma transparente en memoria, en archivos o en base de dato.
+ * Las estadisticas e imagenes resultates podrian almacenarse de forma transparente en memoria, en archivos o en base de datos.
  * 
  * @author Daniel Fuentes
  *
@@ -217,7 +217,6 @@ public class EjecutorDePruebas {
 	        	AlgCombinacion algC = algorithms.get(algIndex);
 	        	FeatureAlgorithm alg = ConversorClasesAnalogas.armarAlgoritmoAnalogo(algC);
 	        	titleAlgoritmo = alg.getDescription();
-	//          FeatureAlgorithm alg = algorithms.get(algIndex);//Selecciona uno de ellos
 	            progressHandler.updateProgress(progressValue, "Probando "+alg.getDescription());
 	
 	            // Comienza la iteracion por las imagenes seleccionadas a evaluar
@@ -310,7 +309,6 @@ public class EjecutorDePruebas {
 	    MatOfDMatch matches = new MatOfDMatch();
 	    List<DMatch> matchesList;
 	    
-	    // To convert ticks to milliseconds
 //	    SystemClock.elapsedRealtime();
 	    double toMsMul = 1000. / Core.getTickFrequency();
 
@@ -323,13 +321,11 @@ public class EjecutorDePruebas {
 
 	        Mat expectedHomography = transformation.getHomography(arg, gray);
 	        
-	        //cv::imshow("transformedImage",transformedImage);
-	        //cv::waitKey(-1);
 	        verificarFlags();
 	        long start = Core.getTickCount();
 	        FeatureAlgorithm.Time timeConsumed= alg.extractFeatures(transformedImage, resKpRealOut, resDesc);
 	        
-	        // Initialize required fields
+	        // Inicializamos los campos requeridos
 	        frameStaticOut.setValid(resKpRealOut.total() > 0);
 	        frameStaticOut.setArgumentValue(arg);
 	        
@@ -346,7 +342,7 @@ public class EjecutorDePruebas {
 	            ratioTest(knMatches, 0.75f, matchesList);
 	            matches.fromList(matchesList);
 	            
-	            // Compute percent of false matches that were rejected by ratio test
+	            // Calculamos el porcenta de coincidencias falsas encontradas (porque no pasan el ratio test)
 	            frameStaticOut.setRatioTestFalseLevel((double)(knMatches.size() - matches.total()) / (double) knMatches.size());
 	        } else {
 	            alg.matchFeatures(sourceDesc, resDesc, matches);
@@ -358,10 +354,9 @@ public class EjecutorDePruebas {
 	        List<DMatch> correctMatchesList;
 	        Mat homography = new Mat();
 	        boolean homographyFound = ImageTransformation.findHomography(sourceKpOut, resKpRealOut, matches, correctMatches, homography);
-	        //boolean homographyFound = ImageTransformation::findHomographySubPix(sourceKp, gray, resKpReal, transformedImage, matches, correctMatches, homography);
 	        correctMatchesList = correctMatches.toList();
 
-	        // Some simple stat:
+	        // Completamos los datos estadisticos simples
 	        frameStaticOut.setValid(homographyFound);
 	        frameStaticOut.setTotalKeypoints((int)resKpRealOut.total());
 	        frameStaticOut.setConsumedTimeMs((end - start) * toMsMul);
@@ -369,28 +364,24 @@ public class EjecutorDePruebas {
 	        frameStaticOut.setConsumedTimeMsExtractor(timeConsumed.consumedTimeMsExtractor * toMsMul);
 	        frameStaticOut.setConsumedTimeMsMatcher((end - startMatcher) * toMsMul);
 	        
-	        // Compute overall percent of matched keypoints
+	        // Calculamos el porcentaje de coincidencias de caracteristicas
 	        frameStaticOut.setPercentOfMatches((double) matches.total() / (double)(Math.min(sourceKpOut.total(), resKpRealOut.total())));
 	        frameStaticOut.setCorrectMatchesPercent((double) correctMatches.total() / (double)matches.total());
 	        
-	        // Compute matching statistics
+	        // Calculamos otras estadisticas
 	        verificarFlags();
 	        if (homographyFound) {
 	        	
-	            //float error = cv::norm(cv::Mat::eye(3,3, CV_64FC1) - r, cv::NORM_INF);
-	        	Mat r = expectedHomography.mul(homography.inv());
-	            Mat tmpMat = Mat.eye(3,3, CvType.CV_64FC1);
-	            //Mat tmpMat = Mat.eye(3,3, CvType.CV_64FC1) - r;
-	            //tmpMat = tmpMat. - r;
-	            //TODO: VERIFICAR LA CORRECTITUD SEMANTICA
+	        	Mat r = expectedHomography.mul(homography.inv()); //esta cuenta deberia dar la matriz identidad si las coincidencias son perfectas
+	            Mat tmpMat = Mat.eye(3,3, CvType.CV_64FC1); //matriz identidad
 	            for (int pos1=0; pos1<3; pos1++) {
 	            	for (int pos2=0; pos2<3; pos2++) {
 	            		double valor = tmpMat.get(pos1, pos2)[0];
-	            		valor = valor - r.get(pos1, pos2)[0];
+	            		valor = valor - r.get(pos1, pos2)[0]; //este valor deberia dar todo cero en condiciones ideales
 	            		tmpMat.put(pos1, pos2, valor);
 	            	}
 	            }
-	            double error = Core.norm(tmpMat, Core.NORM_INF);
+	            double error = Core.norm(tmpMat, Core.NORM_INF); //aqui calcula la normal de la matriz de error
 	            r.release();
 	            tmpMat.release();
 
@@ -402,34 +393,6 @@ public class EjecutorDePruebas {
 	            
 	            verificarFlags();
 	            asentarResultado(alg, transformation, arg, sourceImagenOriginalClone, transformedImage.clone(), frameStaticOut, sourceKpOut, new MatOfKeyPoint(resKpRealOut.clone()));
-
-//	            if (error >= 1) {
-//	            	
-//	            	System.out.println("H expected: "+ expectedHomography.toString());
-//	            	System.out.println(expectedHomography.dump());
-//	            	System.out.println("---");
-//	            	System.out.println("H actual: "+ homography.toString());
-//	            	System.out.println(homography.dump());
-//	            	System.out.println("---");
-//	            	System.out.println("H error: "+ error);
-//	            	System.out.println("R error: "+ frameStaticOut.getReprojectionError().toString());
-	            	
-//	            	Mat matchesImg = new Mat();
-//	            	MatOfByte mask = new MatOfByte();
-//	            	Features2d.drawMatches(transformedImage, 
-//	            			resKpReal, 
-//	            			gray, 
-//	            			sourceKp, 
-//	            			correctMatches, 
-//	            			matchesImg, 
-//	            			Scalar.all(-1.0), 
-//	            			Scalar.all(-1.0),
-//	            			mask, 
-//	            			Features2d.NOT_DRAW_SINGLE_POINTS);
-
-//	                cv::imshow("Matches", matchesImg);
-//	                cv::waitKey(-1);
-//	            }
 	        } 
 	        
 	        progressHandler.updateProgress(++progressValue, titleAlgoritmo+", "+titleTransformacion+" "+(i+1)+"/"+count);
@@ -479,7 +442,6 @@ public class EjecutorDePruebas {
 			DMatch best = matches.get(0);
 			DMatch good = matches.get(1);
 			
-			//assert(best.distance <= good.distance);
 			if (best.distance <= good.distance) {
 				float ratio = best.distance / good.distance;
 				if (ratio <= maxRatio)
@@ -502,7 +464,6 @@ public class EjecutorDePruebas {
 	        return false;
 	    List<Double> distances = new ArrayList<Double>(matches.size());
 	    for (int i=0; i<matches.size(); i++)
-//	        distances.set(i, (double)matches.get(i).distance);
 	    	distances.add((double)matches.get(i).distance);
 	    
 	    MatOfDouble src = new MatOfDouble();
@@ -558,8 +519,6 @@ public class EjecutorDePruebas {
 	    MatOfPoint2f dstPointsMat = new MatOfPoint2f();
 	    srcPointsMat.fromList(srcPoints);
 	    dstPointsMat.fromList(srcPoints);
-	    //FIXME: se esta rompiendo aca!!!
-	    ///home/daniel/local/proys/tesis/opencv/opencv/modules/core/src/matmul.cpp:1926: error: (-215) scn + 1 == m.cols && (depth == CV_32F || depth == CV_64F) in function void cv::perspectiveTransform(cv::InputArray, cv::OutputArray, cv::InputArray)
 	    Core.perspectiveTransform(dstPointsMat, dstPointsMat, homography.inv());
 	    for (int i = 0; i < pointsCount; i++) {
 	        Point src = srcPoints.get(i);

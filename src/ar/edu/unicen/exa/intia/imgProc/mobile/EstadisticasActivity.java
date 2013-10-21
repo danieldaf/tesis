@@ -249,15 +249,16 @@ public class EstadisticasActivity extends Activity {
 					valores.add(item.getValor());
 				}
 								
-				SerieData serie;
-				String colorPrevio = coloresAsignados.get(algoritmo);
-				if (colorPrevio == null) {
-					serie = new SerieData(algoritmo, valores);
-					colorPrevio = serie.getColor();
-					coloresAsignados.put(algoritmo, colorPrevio);
-				} else {
-					serie = new SerieData(algoritmo, colorPrevio, valores);
-				}
+				SerieData serie = new SerieData(algoritmo, coloresAsignados.get(algoritmo), valores);
+//				SerieData serie;
+//				String colorPrevio = coloresAsignados.get(algoritmo);
+//				if (colorPrevio == null) {
+//					serie = new SerieData(algoritmo, valores);
+//					colorPrevio = serie.getColor();
+//					coloresAsignados.put(algoritmo, colorPrevio);
+//				} else {
+//					serie = new SerieData(algoritmo, colorPrevio, valores);
+//				}
 				listSeries.add(serie);
 			}
 			mapSeries.put(idTag, listSeries);

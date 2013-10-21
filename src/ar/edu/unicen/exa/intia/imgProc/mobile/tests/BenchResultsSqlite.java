@@ -175,14 +175,11 @@ public class BenchResultsSqlite extends BenchResults {
 			MatImagen sourceImage = statResult.getSourceImage();
 			imgOrigen = new ImagenOrigen(null, sourceImage.getName(), sourceImage.getUri().toString(), null);
 			if (config.isSaveSourceImages() && config.getFolderPathOutResourcesFull() != null) {
-				//TODO persistir la imagen en el sdcard!
 				Uri uri = persistirSourceImagen(sourceImage, config.getFolderPathOutResourcesFull());
 				if (uri != null) {
-//					uri = sourceImage.getUri();
 					imgOrigen.setUri(uri.toString());
 				}
 			}
-			//TODO: verificar si la uri se obtiene bien, deberia poder reconstruirse con Uri.parse(uriString)
 			imgOrigen = dao.asentarImagenOrigen(imgOrigen);
 		}
 		
@@ -200,9 +197,7 @@ public class BenchResultsSqlite extends BenchResults {
 			}
 			Uri uri = null;
 			if (config.isSaveTransformedImages() && config.getFolderPathOutResourcesFull() != null) {
-				//TODO persistir la imagen en el sdcard
 				uri = persistirTransformedImagen(statResult.getSourceImage(), strVal, statResult.getTransformedImage(), config.getFolderPathOutResourcesFull());
-//				uri = Uri.parse(imgOrigen.getUri());
 			}
 			imgTransformada = new ImagenTransformada(null, imgOrigen, algTransformacion, jsonCaracteristicas, uri!=null?uri.toString():null);
 			imgTransformada = dao.asentarImagenTransformada(imgTransformada);

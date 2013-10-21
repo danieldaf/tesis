@@ -61,8 +61,6 @@ public class ImageBrightnessTransform extends ImageTransformation {
 	 */
 	@Override
 	public void transform(double t, Mat source, Mat result) {
-		//TODO: verificar que no se haya perdido la semantica
-	    //result = source + cv::Scalar(t,t,t,t);
 		Scalar scalar = new Scalar(t,t,t,t);
 		Core.add(source, scalar, result);
 	}

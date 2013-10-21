@@ -1,0 +1,32 @@
+OpenCV Fetures Comparision for Android
+
+    Este es un trabajo de tesis sobre la evaluación de los distintos algoritmos 
+implementados en OpenCV, para el reconocimientos de imagenes basados en la 
+extracción de puntos característicos.
+    Particularmente es un proyecto para realizar las pruebas en dispositivos
+Android. Se empleo OpenCV 2.4.0 y el proyecto esta pensado para ser ejecutado
+en versiones de Android 4.0.0 o superior. 
+    
+    Gran parte del código de evaluación, es una adaptación a java de la
+implementación del caso de pruebas para iPhone desarrollado en el Ievgen 
+Khvedchenia en su blog 
+
+http://computer-vision-talks.com/2011/01/comparison-of-the-opencvs-feature-detection-algorithms-2/
+
+Codigo disponible en su repositorio git publico:
+
+https://github.com/BloodAxe/OpenCV-Features-Comparison
+
+    Nuestro proyecto no es una simple adaptación del código de I. Khvedchenia.
+En nuestro caso, ademas hemos adaptado los calculos a una la version mas 
+reciente de OpenCV y nos hemos propuesto que sea facil incoporar nuevas 
+implementaciones de algoritmos similares a futuro.
+Asi como tambien, el proyecto presenta una interfaz simple y amena para poder
+configurar en tiempo de ejecución, el tipo de pruebas a realizar.
+Pudiendose parametrizar:
+    - los algoritmos a evaluar
+    - las transformaciones sinteticas a usar
+    - las imagenes a emplear
+    
+    Adicionalmente el sistema permite guardar las estadisticas históritcas de 
+las pruebas relalizadas, mostrando las metricas calculadas mediante gráficos.

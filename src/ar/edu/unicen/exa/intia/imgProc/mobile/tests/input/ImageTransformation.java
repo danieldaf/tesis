@@ -66,7 +66,7 @@ public abstract class ImageTransformation {
 	}
 	
 	public void transform(double t, MatOfKeyPoint source, MatOfKeyPoint result) {
-		//TODO no hace nada (es asi, falso todo)
+		//Por defecto no hace nada (es asi, falso todo)
 	}
 
 	/**
@@ -88,22 +88,17 @@ public abstract class ImageTransformation {
 	}
 
 	/**
-	 * TODO: analizar mas en detalle este metodo. Lo que sigue es una explicacion aproximada de lo que hace.
-	 * Pero debe ser reanalizada en profundidad aun.
-	 * ----
-	 * 
 	 * Este metodo calcula la matriz de homografía aproximada en base a conocer la posicion original y donde fue detectado 
 	 * una serie de puntos carateristicos. Es decir el cambio de coordenadas que deberia aplicarse para poder transformar 
 	 * los puntos caracteristicos originales a sus ubicaciones donde fueron detectados.
 	 * Dicha matriz puede no existir o ser ligeramente distinta para todos los puntos detectados.
 	 * Con lo cual el resultado es una matriz aproximada, es un promedio de todas las matrices de homografia calculada
 	 * para cada punto caracteristico detectado ponderado por la calidad de matching del mismo. 
-	 * (VERIFICAR ESTO PERO CREO ENTENDER QUE ASI FUNCIONA)
 	 * 
 	 * @param source El listado de los puntos caracteristicos detectados en la imagen patron (original)
 	 * @param result El listado de los puntos caracteristicos detectados en la imagen transformada
 	 * @param input El listado de todos los puntos caracteristicos de 'source' que fueron encontrados en 'result' 
-	 * 	(lso matches que el algoritmo dice haber encontrado)
+	 * 	(los matches que el algoritmo dice haber encontrado)
 	 * @param inliers Este listado se llena aqui dentro. RETORNA un subconjunto del listado de 'input'. Contiene todos los 
 	 * 	puntos que algoritmos matcheo correctamente y a su ves su matriz de homografia es lo sufiente cercana a la 
 	 * 	matriz de homografia resultante calculada.
@@ -123,7 +118,7 @@ public abstract class ImageTransformation {
         long pointsCount = inputList.size();
         float reprojectionThreshold = 2;
 
-        //Prepare src and dst points
+        //Preparamos los puntos origen y destino
         List<Point> srcPointsList = new ArrayList<Point>();
         List<Point> dstPointsList = new ArrayList<Point>();
         for (int i = 0; i < pointsCount; i++) {
@@ -134,15 +129,19 @@ public abstract class ImageTransformation {
         MatOfPoint2f srcPoints = new MatOfPoint2f(srcPointsList.toArray(new Point[0]));
         MatOfPoint2f dstPoints = new MatOfPoint2f(dstPointsList.toArray(new Point[0]));
           
-        // Find homography using RANSAC algorithm
         Mat status = new Mat();
+        // Buscamos la matriz de homografia usando todos los puntos
+        // Calib3d.findHomography(srcPoints, dstPoints, 0, reprojectionThreshold, status).copyTo(homography);
+        // Buscamos la matriz de homografia usando el algoritmo RANSAC
         Calib3d.findHomography(srcPoints, dstPoints, Calib3d.FM_RANSAC, reprojectionThreshold, status).copyTo(homography);
         
-        // Warp dstPoints to srcPoints domain using inverted homography transformation
+        // Poryectamos hacia atras, los puntos destino a su origen estimado en base al matriz de homografia calculada
         MatOfPoint2f srcReprojected = new MatOfPoint2f();
         Core.perspectiveTransform(dstPoints, srcReprojected, homography.inv());
 
-        // Pass only matches with low reprojection error (less than reprojectionThreshold value in pixels)
+        // Recorremos y buscamos las coincidencias correctas.
+        // Se consideran correctas aquellas que la poryeccion hacia atras es menor a error dado.
+        // El error empleado esta dada por la variable reprojectionThreshold en pixels.
         List<DMatch> inliersList = new ArrayList<DMatch>(); 
         List<Point> srcReprojectedList = srcReprojected.toList();
         for (int i = 0; i < pointsCount; i++) {
@@ -151,17 +150,21 @@ public abstract class ImageTransformation {
             Point v = new Point(actual.x - expect.x, actual.y - expect.y);
             double distanceSquared = v.dot(v);
             
-            if (/*status[i] && */distanceSquared <= reprojectionThreshold * reprojectionThreshold) {
+            if (distanceSquared <= reprojectionThreshold * reprojectionThreshold) {
             	inliersList.add(inputList.get(i));
             }
         }
         inliers.fromList(inliersList);
         
-        // Test for bad case
+        // Si la cantidad de coincidencias correctas es menor a 4 consideramos que 
+        // el algoritmo es un fiasco y cancelamos la operacion.
+        // Dado la escases de datos no sera fiable la homografia estimada. Para estos caso decimos
+        // que el algormitmo no tiene una homografia media confiable.
         if (inliersList.size() < 4)
             return false;
         
-        // Now use only good points to find refined homography:
+        // Usamos las coincidencias correctas para buscar nuevamente una matriz de homografia, pero esta vez 
+        // con una granularidad mas fina. A fin de minimizar el error de su calculo
         List<Point> refinedSrcList = new ArrayList<Point>();
         List<Point> refinedDstList = new ArrayList<Point>();
         for (int i = 0; i < inliersList.size(); i++) {
@@ -172,13 +175,15 @@ public abstract class ImageTransformation {
         MatOfPoint2f refinedSrc = new MatOfPoint2f(refinedSrcList.toArray(new Point[0]));
         MatOfPoint2f refinedDst = new MatOfPoint2f(refinedDstList.toArray(new Point[0]));
         
-        // Use least squares method to find precise homography 0 == Calib3d.CV_ITERATIVE
+        // Buscamos la matriz de homografia, esta vez, usando todos las coincidencias correctas (0 == Calib3d.CV_ITERATIVE)
         Mat homography2 = Calib3d.findHomography(refinedSrc, refinedDst, Calib3d.CV_ITERATIVE, reprojectionThreshold);
 
-        // Reproject again:
+        // Volvemos aproyectas hacia atras los puntos destino a su origen estimado
         Core.perspectiveTransform(dstPoints, srcReprojected, homography2.inv());
         inliersList.clear();
-        
+
+        // Volvemos a verificas que las considencias correctas encontradas en una primera instancia
+        // sigan siendo consideradas correctas con esta segunda matriz de homografia mas precisa.
         for (int i = 0; i < pointsCount; i++) {
             Point actual = srcPointsList.get(i);
             Point expect = srcReprojectedList.get(i);
@@ -191,7 +196,6 @@ public abstract class ImageTransformation {
         }
         inliers.fromList(inliersList);
      
-        //homography = homography2;
         homography2.copyTo(homography);
         return inliersList.size() >= 4;
     }
