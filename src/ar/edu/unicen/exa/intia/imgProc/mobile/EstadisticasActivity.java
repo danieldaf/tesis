@@ -296,25 +296,27 @@ public class EstadisticasActivity extends Activity {
 		double tiempoMax = 1.0;
 		
 		seriesEficiencia = new ArrayList<SerieData>();
-		for (EstadisticaEficiencia itemEstadistica : estadisticas) {
-			SerieData serie = null;
-			
-			if (itemEstadistica.getTiempoTotalPorKeypoints() > tiempoMax)
-				tiempoMax = itemEstadistica.getTiempoTotalPorKeypoints();
-			
-			List<Double> valores = new ArrayList<Double>();
-			valores.add(Math.round(itemEstadistica.getTiempoTotalPorKeypoints()*1000.0)/1000.0);
-//			valores.add(Math.round(itemEstadistica.getTiempoDetExtPorKeypoints()*1000.0)/1000.0);
-			valores.add(Math.round(itemEstadistica.getTiempoMatchingPorKeypoints()*1000.0)/1000.0);
-			valores.add(Math.round(itemEstadistica.getTiempoExtraccionPorKeypoints()*1000.0)/1000.0);
-			valores.add(Math.round(itemEstadistica.getTiempoDeteccionPorKeypoints()*1000.0)/1000.0);
-
-			serie = new SerieData(itemEstadistica.getAlgoritmo(), valores);
-			seriesEficiencia.add(serie);
-			
-			if (algMasEficaz == null || tiempoMasEficaz > itemEstadistica.getTiempoTotalPorKeypoints()) {
-				algMasEficaz = itemEstadistica.getAlgoritmo();
-				tiempoMasEficaz = itemEstadistica.getTiempoTotalPorKeypoints();
+		if (estadisticas != null) {
+			for (EstadisticaEficiencia itemEstadistica : estadisticas) {
+				SerieData serie = null;
+				
+				if (itemEstadistica.getTiempoTotalPorKeypoints() > tiempoMax)
+					tiempoMax = itemEstadistica.getTiempoTotalPorKeypoints();
+				
+				List<Double> valores = new ArrayList<Double>();
+				valores.add(Math.round(itemEstadistica.getTiempoTotalPorKeypoints()*1000.0)/1000.0);
+	//			valores.add(Math.round(itemEstadistica.getTiempoDetExtPorKeypoints()*1000.0)/1000.0);
+				valores.add(Math.round(itemEstadistica.getTiempoMatchingPorKeypoints()*1000.0)/1000.0);
+				valores.add(Math.round(itemEstadistica.getTiempoExtraccionPorKeypoints()*1000.0)/1000.0);
+				valores.add(Math.round(itemEstadistica.getTiempoDeteccionPorKeypoints()*1000.0)/1000.0);
+	
+				serie = new SerieData(itemEstadistica.getAlgoritmo(), valores);
+				seriesEficiencia.add(serie);
+				
+				if (algMasEficaz == null || tiempoMasEficaz > itemEstadistica.getTiempoTotalPorKeypoints()) {
+					algMasEficaz = itemEstadistica.getAlgoritmo();
+					tiempoMasEficaz = itemEstadistica.getTiempoTotalPorKeypoints();
+				}
 			}
 		}
 

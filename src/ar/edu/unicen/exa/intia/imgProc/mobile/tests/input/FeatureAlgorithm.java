@@ -10,6 +10,8 @@ import org.opencv.features2d.DescriptorExtractor;
 import org.opencv.features2d.DescriptorMatcher;
 import org.opencv.features2d.FeatureDetector;
 
+import android.os.SystemClock;
+
 public class FeatureAlgorithm {
 
 	private String description;
@@ -67,16 +69,24 @@ public class FeatureAlgorithm {
 		
 	    long startD, endD, startE, endE;
 	    
-	    startD = Core.getTickCount();
+//	    startD = Core.getTickCount();
+//	    startD = SystemClock.currentThreadTimeMillis();
+	    startD = System.nanoTime();
 		detector.detect(image, kp);
-		endD = Core.getTickCount();
+//		endD = Core.getTickCount();
+//		endD = SystemClock.currentThreadTimeMillis();
+		endD = System.nanoTime();
 	    
 	    if (kp.empty())
 	        return null;
 	    
-	    startE = Core.getTickCount();
-	    extractor.compute(image, kp, desc);
-	    endE = Core.getTickCount();
+//	    startE = Core.getTickCount();
+//	    startE = SystemClock.currentThreadTimeMillis();
+	    startE = System.nanoTime();
+	    extractor.compute(image, kp, desc);	    
+//	    endE = Core.getTickCount();
+//	    endE = SystemClock.currentThreadTimeMillis();
+	    endE = System.nanoTime();
 	    
 //	    return kp.total() > 0;
 	    Time result = null;

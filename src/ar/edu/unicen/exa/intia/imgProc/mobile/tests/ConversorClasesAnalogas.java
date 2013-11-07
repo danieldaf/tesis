@@ -117,7 +117,16 @@ public class ConversorClasesAnalogas {
 		statOut.setConsumedTimeMsDetector(statIn.getConsumedTimeMsDetector());
 		statOut.setConsumedTimeMsExtractor(statIn.getConsumedTimeMsExtractor());
 		statOut.setConsumedTimeMsMatcher(statIn.getConsumedTimeMsMatcher());
-		double[] reprojection = statIn.getReprojectionError().val;
+		double[] reprojection = null;
+		if (statIn.getReprojectionError() != null) {
+			reprojection = statIn.getReprojectionError().val;
+		} else {
+			reprojection = new double[4];
+			reprojection[0] = 0;
+			reprojection[1] = 0;
+			reprojection[2] = 0;
+			reprojection[3] = 0;
+		}
 		statOut.setDistanciaMediaProyecciones(reprojection[0]);
 		statOut.setDesviacionEstandarProyecciones(reprojection[1]);
 		statOut.setDistanciaMaximaProyecciones(reprojection[2]);

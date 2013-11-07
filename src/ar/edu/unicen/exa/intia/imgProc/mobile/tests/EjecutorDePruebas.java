@@ -13,9 +13,11 @@ import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.features2d.DMatch;
+import org.opencv.features2d.DescriptorExtractor;
 import org.opencv.features2d.KeyPoint;
 import org.opencv.imgproc.Imgproc;
 
+import android.os.SystemClock;
 import ar.edu.unicen.exa.intia.imgProc.mobile.dto.AlgCombinacion;
 import ar.edu.unicen.exa.intia.imgProc.mobile.tests.exceptions.ExecutionEvaluationException;
 import ar.edu.unicen.exa.intia.imgProc.mobile.tests.exceptions.ExecutionExceptionEnum;
@@ -211,6 +213,9 @@ public class EjecutorDePruebas {
          * 
          */
         try {
+        	//Test inicial
+//        	DescriptorExtractor freakExtractor = DescriptorExtractor.create(DescriptorExtractor.FREAK);
+        	
 	        //Itera en segunda instancia por el conjunto de metodos armados
 	        for (int algIndex = 0; algIndex < algorithms.size(); algIndex++) {
 	        	verificarFlags();
@@ -309,9 +314,9 @@ public class EjecutorDePruebas {
 	    MatOfDMatch matches = new MatOfDMatch();
 	    List<DMatch> matchesList;
 	    
-//	    SystemClock.elapsedRealtime();
-	    double toMsMul = 1000. / Core.getTickFrequency();
-
+//	    SystemClock.currentThreadTimeMillis();
+//	    double toMsMul = 1000. / Core.getTickFrequency();
+	    
 	    for (int i = 0; i < count; i++) {
 	    	verificarFlags();
 	        double arg = transformationStep.get(i);
@@ -322,7 +327,9 @@ public class EjecutorDePruebas {
 	        Mat expectedHomography = transformation.getHomography(arg, gray);
 	        
 	        verificarFlags();
-	        long start = Core.getTickCount();
+//	        long start = Core.getTickCount();
+//	        long start = SystemClock.currentThreadTimeMillis();
+	        long start = System.nanoTime();
 	        FeatureAlgorithm.Time timeConsumed= alg.extractFeatures(transformedImage, resKpRealOut, resDesc);
 	        
 	        // Inicializamos los campos requeridos
@@ -334,7 +341,9 @@ public class EjecutorDePruebas {
 	            continue;
 	        }
 	        
-	        long startMatcher = Core.getTickCount();
+//	        long startMatcher = Core.getTickCount();
+//	        long startMatcher = SystemClock.currentThreadTimeMillis();
+	        long startMatcher = System.nanoTime();
 	        if (alg.isKnMatchSupported()) { //Para estas pruebas ningun algoritmos esta configurado como que permite KnMatche
 	            List<MatOfDMatch> knMatches = new ArrayList<MatOfDMatch>();
 	            alg.matchFeatures(sourceDesc, resDesc, 2, knMatches);
@@ -346,8 +355,12 @@ public class EjecutorDePruebas {
 	            frameStaticOut.setRatioTestFalseLevel((double)(knMatches.size() - matches.total()) / (double) knMatches.size());
 	        } else {
 	            alg.matchFeatures(sourceDesc, resDesc, matches);
+//	        	matchesList = new ArrayList<DMatch>();
+//	        	matches.fromList(matchesList);
 	        }
-	        long end = Core.getTickCount();
+//	        long end = Core.getTickCount();
+//	        long end = SystemClock.currentThreadTimeMillis();
+	        long end = System.nanoTime();
 	        verificarFlags();
 	        
 	        MatOfDMatch correctMatches = new MatOfDMatch();
@@ -359,10 +372,21 @@ public class EjecutorDePruebas {
 	        // Completamos los datos estadisticos simples
 	        frameStaticOut.setValid(homographyFound);
 	        frameStaticOut.setTotalKeypoints((int)resKpRealOut.total());
-	        frameStaticOut.setConsumedTimeMs((end - start) * toMsMul);
-	        frameStaticOut.setConsumedTimeMsDetector(timeConsumed.consumedTimeMsDetector * toMsMul);
-	        frameStaticOut.setConsumedTimeMsExtractor(timeConsumed.consumedTimeMsExtractor * toMsMul);
-	        frameStaticOut.setConsumedTimeMsMatcher((end - startMatcher) * toMsMul);
+	        //Core.getTickCount()
+//	        frameStaticOut.setConsumedTimeMs((end - start) * toMsMul);
+//	        frameStaticOut.setConsumedTimeMsDetector(timeConsumed.consumedTimeMsDetector * toMsMul);
+//	        frameStaticOut.setConsumedTimeMsExtractor(timeConsumed.consumedTimeMsExtractor * toMsMul);
+//	        frameStaticOut.setConsumedTimeMsMatcher((end - startMatcher) * toMsMul);
+	        //SystemClock.currentThreadTimeMillis()
+//	        frameStaticOut.setConsumedTimeMs(end - start);
+//	        frameStaticOut.setConsumedTimeMsDetector(timeConsumed.consumedTimeMsDetector);
+//	        frameStaticOut.setConsumedTimeMsExtractor(timeConsumed.consumedTimeMsExtractor);
+//	        frameStaticOut.setConsumedTimeMsMatcher(end - startMatcher);
+	        // System.nanoTime()
+	        frameStaticOut.setConsumedTimeMs((end - start) / 1000000);
+	        frameStaticOut.setConsumedTimeMsDetector(timeConsumed.consumedTimeMsDetector / 1000000);
+	        frameStaticOut.setConsumedTimeMsExtractor(timeConsumed.consumedTimeMsExtractor / 1000000);
+	        frameStaticOut.setConsumedTimeMsMatcher((end - startMatcher) / 1000000);
 	        
 	        // Calculamos el porcentaje de coincidencias de caracteristicas
 	        frameStaticOut.setPercentOfMatches((double) matches.total() / (double)(Math.min(sourceKpOut.total(), resKpRealOut.total())));
@@ -393,7 +417,9 @@ public class EjecutorDePruebas {
 	            
 	            verificarFlags();
 	            asentarResultado(alg, transformation, arg, sourceImagenOriginalClone, transformedImage.clone(), frameStaticOut, sourceKpOut, new MatOfKeyPoint(resKpRealOut.clone()));
-	        } 
+	        } else {
+	        	asentarResultado(alg, transformation, arg, sourceImagenOriginalClone, transformedImage.clone(), frameStaticOut, sourceKpOut, new MatOfKeyPoint(resKpRealOut.clone()));
+	        }
 	        
 	        progressHandler.updateProgress(++progressValue, titleAlgoritmo+", "+titleTransformacion+" "+(i+1)+"/"+count);
 	        
