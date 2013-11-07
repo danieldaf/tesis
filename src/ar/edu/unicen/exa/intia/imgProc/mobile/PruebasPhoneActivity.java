@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
-import org.opencv.android.OpenCVLoader;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -38,7 +37,6 @@ import ar.edu.unicen.exa.intia.imgProc.mobile.tests.SrvPruebaPerformanceBinder;
 import ar.edu.unicen.exa.intia.imgProc.mobile.tests.exceptions.ExecutionEvaluationException;
 import ar.edu.unicen.exa.intia.imgProc.mobile.tests.exceptions.InputValidationException;
 import ar.edu.unicen.exa.intia.imgProc.mobile.tests.input.FileImageLoadIterator;
-import ar.edu.unicen.exa.intia.imgProc.mobile.utils.DeviceInfoUtils;
 import ar.edu.unicen.exa.intia.imgProc.mobile.view.fragments.ListAlgoritmos;
 import ar.edu.unicen.exa.intia.imgProc.mobile.view.fragments.ListSourceImagenes;
 import ar.edu.unicen.exa.intia.imgProc.mobile.view.fragments.ListTransformaciones;

@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import ar.edu.unicen.exa.intia.imgProc.mobile.*;
+import ar.edu.unicen.exa.intia.imgProc.mobile.EstadisticasActivity_;
 import ar.edu.unicen.exa.intia.imgProc.mobile.dto.EjecucionDto;
 import ar.edu.unicen.exa.intia.imgProc.mobile.extractorCaracteristicas.pruebasPerfomance.R;
 import ar.edu.unicen.exa.intia.imgProc.mobile.model.ModeloDeDatos;

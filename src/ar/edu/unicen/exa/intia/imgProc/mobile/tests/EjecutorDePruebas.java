@@ -13,11 +13,9 @@ import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.features2d.DMatch;
-import org.opencv.features2d.DescriptorExtractor;
 import org.opencv.features2d.KeyPoint;
 import org.opencv.imgproc.Imgproc;
 
-import android.os.SystemClock;
 import ar.edu.unicen.exa.intia.imgProc.mobile.dto.AlgCombinacion;
 import ar.edu.unicen.exa.intia.imgProc.mobile.tests.exceptions.ExecutionEvaluationException;
 import ar.edu.unicen.exa.intia.imgProc.mobile.tests.exceptions.ExecutionExceptionEnum;
